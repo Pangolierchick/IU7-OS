@@ -1,7 +1,7 @@
 % !TeX document-id = {c68f4be8-c497-43e0-82df-e9ebfbea9577}
 % !TeX TXS-program:pdflatex = pdflatex -synctex=1 -interaction=nonstopmode --shell-escape %.tex
 % новая команда \RNumb для вывода римских цифр
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,14pt]{article}
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -29,7 +29,7 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{ucs}
-
+\usepackage{titlesec}
 
 \lstdefinestyle{asm}{
 	language={[x86masm]Assembler},
@@ -47,6 +47,14 @@
 	captionpos=b,
 	breaklines=true
 }
+
+\titleformat{\section}[hang]
+{\normalfont\bfseries}
+{\thesection}{0.5em}{}
+
+\titleformat{\subsection}[hang]
+{\normalfont\bfseries}
+{\thesubsection}{0.5em}{}
 
 \lstset{basicstyle=\fontsize{10}{10}\selectfont,breaklines=true,inputencoding=utf8x,extendedchars=\true}
 
@@ -128,7 +136,7 @@
 
 
 % геометрия
-\geometry{pdftex, left = 2cm, right = 2cm, top = 2.5cm, bottom = 2.5cm}
+\geometry{pdftex, left = 3cm, right = 10mm, top = 2cm, bottom = 2cm}
 
 \setcounter{tocdepth}{4} % фикс переноса 
 \righthyphenmin = 2
@@ -140,7 +148,7 @@
 \noindent \begin{minipage}{0.15\textwidth}
 	\includegraphics[width=\linewidth]{b_logo}
 \end{minipage}
-\noindent\begin{minipage}{0.9\textwidth}\centering
+\noindent\begin{minipage}{0.85\textwidth}\centering
 	\textbf{Министерство науки и высшего образования Российской Федерации}\\
 	\textbf{Федеральное государственное бюджетное образовательное учреждение высшего образования}\\
 	\textbf{«Московский государственный технический университет имени Н.Э.~Баумана}\\
@@ -148,7 +156,7 @@
 	\textbf{(МГТУ им. Н.Э.~Баумана)}
 \end{minipage}
 
-\noindent\rule{18cm}{3pt}
+\noindent\rule{16cm}{3pt}
 \newline\newline
 \noindent ФАКУЛЬТЕТ $\underline{\text{«Информатика и системы управления»}}$ \newline\newline
 \noindent КАФЕДРА $\underline{\text{«Программное обеспечение ЭВМ и информационные технологии»}}$\newline\newline\newline\newline\newline\newline\newline
@@ -167,9 +175,13 @@
 \noindent\textbf{Преподаватель} $\underline{\text{Рязанова Н.Ю.}}$\newline
 
 \begin{center}
+	\mbox{}
 	\vfill
-	Москва~---~\the\year
-~г.
+	Москва
+\end{center}
+
+\begin{center}
+	\the\year ~г.
 \end{center}
 \clearpage
 
@@ -317,15 +329,16 @@
 ""\newline
 
 \begin{flushright}
-	\includegraphics[scale=0.5]{scheme1.png}
-	\includegraphics[scale=1]{scheme2.JPG}
+	\includegraphics[scale=0.75]{int8h_1.png}
+	\includegraphics[scale=0.75]{int8h_2.png}
+	\includegraphics[scale=0.75]{int8h_3.png}
 \end{flushright}
 
 \clearpage
 \subsection{Схема алгоритма процедуры sub\_1}
 
 \begin{center}
-	\includegraphics[scale=1]{scheme3.JPG}
+	\includegraphics[scale=0.75]{sub_1.png}
 \end{center}
 
 \end{document}
