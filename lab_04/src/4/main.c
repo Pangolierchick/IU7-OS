@@ -7,20 +7,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-static void print_status(int s) {
-    if (WIFEXITED(s)) {
-        puts("\tProcess completed successfully.");
-        printf("\tReturn code: %d\n", WEXITSTATUS(s));
-    } else if (WIFSIGNALED(s)) {
-        puts("\tProcess terminated due to unhandled signal");
-        printf("\tSignal number: %d\n", WTERMSIG(s));
-    } else if (WIFSTOPPED(s)) {
-        puts("\tProcess has been stopped");
-        printf("\tSignal number: %d\n", WTERMSIG(s));
-    }
-}
-
-const char *msgs[] = { "Message 1 ", "Mes 2" };
+const char *msgs[] = { "I like to read books ", "My name is Kirill" };
 
 int main(void) {
     pid_t ch1, ch2;
@@ -57,10 +44,30 @@ int main(void) {
     }
 
     wait(&status);
-    print_status(status);
+    
+    if (WIFEXITED(status)) {
+        puts("\tProcess completed successfully.");
+        printf("\tReturn code: %d\n", WEXITSTATUS(status));
+    } else if (WIFSIGNALED(status)) {
+        puts("\tProcess terminated due to unhandled signal");
+        printf("\tSignal number: %d\n", WTERMSIG(status));
+    } else if (WIFSTOPPED(status)) {
+        puts("\tProcess has been stopped");
+        printf("\tSignal number: %d\n", WTERMSIG(status));
+    }
 
     wait(&status);
-    print_status(status);
+    
+    if (WIFEXITED(status)) {
+        puts("\tProcess completed successfully.");
+        printf("\tReturn code: %d\n", WEXITSTATUS(status));
+    } else if (WIFSIGNALED(status)) {
+        puts("\tProcess terminated due to unhandled signal");
+        printf("\tSignal number: %d\n", WTERMSIG(status));
+    } else if (WIFSTOPPED(status)) {
+        puts("\tProcess has been stopped");
+        printf("\tSignal number: %d\n", WTERMSIG(status));
+    }
 
     close(fd[1]);
 
